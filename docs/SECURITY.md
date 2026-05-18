@@ -2,19 +2,37 @@
 
 ## Status
 
-Planned
+Prototype / MVP
 
-Security controls must be reviewed again when API code and scoring logic are added.
+Security controls must be reviewed again when implementation code, integrations, or deployment configuration are added.
 
-## Requirements
+## Baseline Rules
 
-- Do not commit API secrets, `.env` files, private datasets, or customer exports.
-- Require authentication for non-public scoring endpoints.
-- Validate all lead inputs with structured schemas.
-- Avoid logging personally identifiable information.
-- Return explainable score factors without exposing sensitive model internals.
-- Review model outputs for fairness, reliability, and misuse risk.
+- Never commit secrets, API keys, tokens, private credentials, `.env` files, customer exports, or private datasets.
+- Use `.env.example` for placeholder configuration names only.
+- Validate all user input before storage, scoring, AI processing, or external API calls.
+- Do not log personally identifiable information or private customer data.
+- Add authentication and authorization before handling protected business data.
+- Review dependencies and provider integrations before public demos.
 
-## Reporting
+## Product-Specific Risks
 
-Report security concerns privately to the maintainer before public disclosure.
+- Require authentication for scoring endpoints before customer use.
+- Return explainable score factors without exposing sensitive internals.
+- Review scoring logic for fairness and misuse risks.
+
+## Responsible AI Controls
+
+- Make limitations clear to users.
+- Avoid unsupported accuracy or reliability claims.
+- Provide human handoff or review for sensitive, uncertain, or high-impact workflows.
+- Prefer explainable factors for scores, summaries, and recommendations.
+
+## Security Review Checklist
+
+- [ ] Secret scan completed.
+- [ ] `.env.example` is accurate.
+- [ ] Input validation documented.
+- [ ] Auth and authorization expectations documented.
+- [ ] Logging reviewed for private data exposure.
+- [ ] Responsible AI limitations documented.
